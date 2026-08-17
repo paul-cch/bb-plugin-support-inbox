@@ -24,7 +24,7 @@ import {
   DialogFooter,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Markdown } from "@get-bb/plugin-sdk/app";
+
 
 type ClusterStatus =
   | "pending"
@@ -509,7 +509,7 @@ function ClusterDetailView({ clusterId }: { clusterId: string }) {
                   </div>
                 ) : (
                   <div className="rounded-md bg-muted/30 p-3">
-                    <Markdown content={d.body} />
+                    <pre className="whitespace-pre-wrap break-words text-sm">{d.body}</pre>
                   </div>
                 )}
                 {d.status === "pending_review" && editingDraft !== d.id && (

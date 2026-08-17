@@ -95,6 +95,7 @@ interface PreparedStatements {
   getTicketsByCluster: Database.Statement;
   getDraftsByCluster: Database.Statement;
   getLatestFixThread: Database.Statement;
+  getFixThreadById: Database.Statement;
   getTicketCountByCluster: Database.Statement;
   insertDraft: Database.Statement;
   insertFixThread: Database.Statement;
@@ -131,6 +132,7 @@ function prepareStatements(db: Database.Database): PreparedStatements {
     getLatestFixThread: db.prepare(
       `SELECT * FROM fix_threads WHERE cluster_id = ? ORDER BY created_at DESC LIMIT 1`,
     ),
+    getFixThreadById: db.prepare(`SELECT * FROM fix_threads WHERE id = ?`),
     getTicketCountByCluster: db.prepare(
       `SELECT ticket_count FROM clusters WHERE id = ?`,
     ),
@@ -551,7 +553,7 @@ We'll update this thread once we have more information. If you have additional c
     stmts.updateClusterStatus.run("in_progress", Date.now(), cluster.id);
 
     return rowToFixThread(
-      stmts.getClusterById.get(fixId) as Record<string, unknown>,
+      stmts.getFixThreadById.get(fixId) as Record<string, unknown>,
     );
   }
 
