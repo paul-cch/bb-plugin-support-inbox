@@ -375,7 +375,8 @@ function ClusterDetailView({ clusterId }: { clusterId: string }) {
       </div>
 
       {/* Actions */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex flex-wrap gap-2">
         {cluster.status === "pending" && (
           <>
             <Button
@@ -424,6 +425,8 @@ function ClusterDetailView({ clusterId }: { clusterId: string }) {
             Reopen
           </Button>
         )}
+        </div>
+        <ReportBugDialog />
       </div>
 
       {/* Fix Thread */}
@@ -690,8 +693,16 @@ function InboxPanel() {
         {selectedClusterId ? (
           <ClusterDetailView clusterId={selectedClusterId} />
         ) : (
-          <div className="flex h-full items-center justify-center text-muted-foreground">
-            Select a cluster to view details.
+          <div className="flex h-full flex-col">
+            <div className="flex items-center justify-between border-b border-border p-3">
+              <span className="text-sm font-medium text-muted-foreground">
+                Support Inbox
+              </span>
+              <ReportBugDialog />
+            </div>
+            <div className="flex flex-1 items-center justify-center text-muted-foreground">
+              Select a cluster to view details.
+            </div>
           </div>
         )}
       </div>
