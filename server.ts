@@ -787,7 +787,7 @@ We'll update this thread once we have more information. If you have additional c
 
   bb.http.route(
     "POST",
-    "webhook",
+    "/webhook",
     async (c) => {
       try {
         const body = await c.req.json();
