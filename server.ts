@@ -852,7 +852,7 @@ We'll update this thread once we have more information. If you have additional c
   // instructions ----------------------------------------------------------
 
   bb.agents.contributeInstructions(() => {
-    return "The support inbox plugin is active. When users report bugs or issues, use support_inbox.report_bug to file them. Review pending clusters at /plugins/support-inbox/inbox.";
+    return "The support inbox plugin is active. When users report bugs or issues, use the support_inbox tool to file them. Review pending clusters at /plugins/support-inbox/inbox.";
   });
 
   // background service: auto-confirm clusters with high report counts ----
