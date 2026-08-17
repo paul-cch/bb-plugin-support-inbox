@@ -827,7 +827,7 @@ We'll update this thread once we have more information. If you have additional c
     description:
       "Report a bug to the support inbox. Use when a user asks to file a bug, report an issue, or submit feedback. The inbox clusters duplicates automatically.",
     instructions:
-      "When the user reports a bug or asks to file an issue, use support_inbox.report_bug(title, body, severity?) to submit it. The inbox will cluster it with similar reports.",
+      "When the user reports a bug or asks to file an issue, use support_inbox(title, body, severity?) to submit it. The inbox will cluster it with similar reports.",
     parameters: z.object({
       title: z.string().min(1).describe("Short descriptive title of the bug"),
       body: z.string().optional().describe("Detailed description, steps to reproduce, expected vs actual behavior"),
